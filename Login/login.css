@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    width: 850px;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.illustration {
+    flex: 1;
+    background: #f0f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.illustration img {
+    max-width: 90%;
+    height: auto;
+}
+.login-form {
+    flex: 1;
+    padding: 50px;
+    text-align: center;
+}
+.login-form h2 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 24px;
+}
+.login-form p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.login-form input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 15px 0;
+}
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.options input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #6c63ff;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.options input[type="checkbox"]:checked {
+    background-color: #6c63ff;
+    border-color: #6c63ff;
+}
+.options input[type="checkbox"]::before {
+    content: "✔";
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.options input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+.options input[type="checkbox"]:hover {
+    border-color: #524ae7;
+}
+.options a {
+    color: #6c63ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.options a:hover {
+    color: #524ae7;
+}
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+.login-form button:hover {
+    background: #524ae7;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6c63ff;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.social-icons a:hover {
+    background: #524ae7;
+}
