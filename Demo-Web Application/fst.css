@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    background-color: #141414;
+    height: 100%;
+}
+.sidebar {
+    width: 200px;
+    background-color: #141414;
+    color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.sidebar .menu-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 75%;
+
+}
+.sidebar .menu-item:hover {
+    background-color: #4b5c77;
+}
+.container {
+    flex-grow: 1;
+}
+#fileSection {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+}
+h2 {
+    color: #4b3c83;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #4b3c83;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#filePreview {
+    max-width: 200px;
+    max-height: 400px;
+}
+button {
+    background-color: #000000;
+    color: white;
+    padding: 11.5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background-color: #63137f;
+}
+
+.delete{
+    background-color: #ff0000;
+    color: white;
+    padding: 11.5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.delete:hover {
+    background-color: #551818;
+}
+
+#logout{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    
+}

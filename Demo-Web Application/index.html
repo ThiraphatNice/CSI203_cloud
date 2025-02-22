@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="illustration" id="illustrationSection">
+            <img src="https://via.placeholder.com/400" alt="Illustration">
+        </div>
+        <div class="login-form" id="loginForm">
+            <h2>Sign In</h2>
+            <p>Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur.</p>
+            <form onsubmit="login(event)">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="options">
+                    <label><input type="checkbox" name="remember"> Remember me</label>
+                    <a href="#">Forgot Password</a>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+            <p>— or login with —</p>
+            <div class="social-icons">
+                <a href="#" class="facebook">F</a>
+                <a href="#" class="twitter">T</a>
+                <a href="#" class="google">G</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

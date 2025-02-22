@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cloud</title>
+    <link rel="stylesheet" href="fst.css">
+    <style>
+        .spacing{
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div style="font-size: 40px;
+        padding: 12px;
+        font-weight: 400;">My Cloud</div>
+        <div class="spacing"></div> 
+        <center><div class="menu-item" id="logout" onclick="logout()">Logout</div></center>
+       
+    </div>
+
+    <div class="container">
+        <div id="fileSection">
+            <h2>Upload File</h2>
+            <label for="fileInput" class="custom-file-upload" onchange="previewFile()">Choose File</label>
+            <input type="file" id="fileInput" onchange="previewFile()" style="display: none;" />
+            <button onclick="uploadFile()">Upload</button>
+            <div id="filePreviewContainer">
+                <p id="fileNamePreview"></p>
+                <img id="filePreview" style="display: none;" />
+            </div>
+            
+            <hr>
+            <h2>File Storage</h2>
+            <ul id="fileList" class="file-list"></ul>
+        </div>
+    </div>
+
+    <script>
+       
+        window.onload = () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'index.html';
+            } else {
+                connectWebSocket();
+                fetchFiles(); 
+            }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
