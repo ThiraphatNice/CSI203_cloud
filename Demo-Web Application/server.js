@@ -109,8 +109,17 @@ app.get('/files', async (req, res) => {
 app.get('/files/:filename', (req, res) => {
     const filename = req.params.filename;
     const filePath = path.join(__dirname, 'uploads', filename);
+
+    // ตรวจสอบว่าไฟล์มีอยู่จริง
+    if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ success: false, message: 'File not found' });
+    }
+
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.setHeader('Content-Type', 'application/octet-stream'); // กำหนด MIME type ให้ถูกต้อง
     res.download(filePath);
 });
+
 
 app.delete('/files/:filename', async (req, res) => {
     const filename = req.params.filename;

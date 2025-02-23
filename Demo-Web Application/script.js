@@ -162,13 +162,48 @@ async function fetchFiles() {
 
 // Download file function
 async function downloadFile(filename) {
-    const response = await fetch(`http://localhost:3000/files/${filename}`);
-    const blob = await response.blob();
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
+    try {
+        const response = await fetch(`http://localhost:3000/files/${filename}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': localStorage.getItem('token') || ''
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to download file: ${response.statusText}`);
+        }
+
+        // อ่าน Blob จาก response
+        const blob = await response.blob();
+        const contentType = response.headers.get("Content-Type") || "";
+        const contentDisposition = response.headers.get("Content-Disposition") || "";
+
+        // ตรวจสอบว่าเซิร์ฟเวอร์ส่งชื่อไฟล์กลับมาหรือไม่
+        let downloadFilename = filename;
+        const match = contentDisposition.match(/filename="?(.+?)"?$/);
+        if (match && match[1]) {
+            downloadFilename = match[1];
+        }
+
+        // สร้าง URL สำหรับไฟล์
+        const link = document.createElement('a');
+        const objectURL = URL.createObjectURL(blob);
+        link.href = objectURL;
+        link.download = downloadFilename; // ใช้ชื่อไฟล์ที่ได้จากเซิร์ฟเวอร์
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // ล้าง URL blob ที่สร้างขึ้นเพื่อป้องกัน memory leak
+        URL.revokeObjectURL(objectURL);
+
+    } catch (error) {
+        console.error("Download error:", error);
+        alert("Failed to download file.");
+    }
 }
+
 
 // Delete file function
 async function deleteFile(filename) {
