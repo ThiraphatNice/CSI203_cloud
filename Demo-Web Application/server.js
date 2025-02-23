@@ -110,7 +110,7 @@ app.get('/files/:filename', (req, res) => {
     const filename = req.params.filename;
     const filePath = path.join(__dirname, 'uploads', filename);
 
-    // ตรวจสอบว่าไฟล์มีอยู่จริง
+    // ตรวจสอบว่าไฟล์มีอยู่จริง...
     if (!fs.existsSync(filePath)) {
         return res.status(404).json({ success: false, message: 'File not found' });
     }
